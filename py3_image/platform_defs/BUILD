@@ -15,6 +15,8 @@ constraint_value(
 platform(
     name = "my_platform",
     constraint_values = [
+        "@bazel_tools//platforms:linux",
+        "@platforms//cpu:x86_64",
         ":usr_weirdpath_python2",
         ":usr_weirdpath_python3",
     ],
@@ -25,11 +27,13 @@ platform(
 py_runtime(
     name = "my_platform_py2_runtime",
     interpreter_path = "/usr/local/bin/python",
+    python_version = "PY2",
 )
 
 py_runtime(
     name = "my_platform_py3_runtime",
     interpreter_path = "/usr/local/bin/python3",
+    python_version = "PY3",
 )
 
 py_runtime_pair(
