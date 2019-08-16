@@ -12,6 +12,10 @@ load(
     container_repositories = "repositories",
 )
 
+register_toolchains(
+    "//platform_defs:my_platform_python_toolchain",
+)
+
 container_repositories()
 
 load(
