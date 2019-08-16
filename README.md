@@ -2,6 +2,8 @@
 
 I am using bazel 0.27 and running these on an OSX.
 
+Every directory is a self-contained example.
+
 ## py_binary
 ```bash
 cd py_binary
