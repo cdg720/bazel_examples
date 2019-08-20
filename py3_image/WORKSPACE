@@ -20,3 +20,7 @@ load(
 )
 
 _py_image_repos()
+
+register_toolchains(
+    "//platform_defs:my_platform_python_toolchain",
+)
