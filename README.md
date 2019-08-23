@@ -16,7 +16,7 @@ You need [docker](https://docs.docker.com/install/) to run the command below.
 ```bash
 cd py3_image
 # Builds and runs a docker image of hello_world.py.
-bazel run -c opt foo:hello_world \
+bazel run -c opt foo:hello_world_image \
   --extra_toolchains=//platform_defs:my_platform_python_toolchain \
   --host_platform=//platform_defs:my_platform
 
