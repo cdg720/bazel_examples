@@ -1,11 +1,6 @@
 load("@bazel_tools//tools/python:toolchain.bzl", "py_runtime_pair")
 
 constraint_value(
-    name = "usr_weirdpath_python2",
-    constraint_setting = "@bazel_tools//tools/python:py2_interpreter_path",
-)
-
-constraint_value(
     name = "usr_weirdpath_python3",
     constraint_setting = "@bazel_tools//tools/python:py3_interpreter_path",
 )
@@ -17,18 +12,11 @@ platform(
     constraint_values = [
         "@bazel_tools//platforms:osx",
         "@platforms//cpu:x86_64",
-        ":usr_weirdpath_python2",
         ":usr_weirdpath_python3",
     ],
 )
 
 # Python runtime definitions that reify these system paths as BUILD targets.
-
-py_runtime(
-    name = "my_platform_py2_runtime",
-    interpreter_path = "/usr/local/bin/python",
-    python_version = "PY2",
-)
 
 py_runtime(
     name = "my_platform_py3_runtime",
@@ -38,7 +26,6 @@ py_runtime(
 
 py_runtime_pair(
     name = "my_platform_runtimes",
-    py2_runtime = ":my_platform_py2_runtime",
     py3_runtime = ":my_platform_py3_runtime",
 )
 
@@ -51,11 +38,9 @@ toolchain(
     target_compatible_with = [
         # Make sure this toolchain is only selected for a target platform that
         # advertises that it has interpreters available under /usr/weirdpath.
-        ":usr_weirdpath_python2",
+        # ":usr_weirdpath_python2",
         ":usr_weirdpath_python3",
     ],
     toolchain = ":my_platform_runtimes",
     toolchain_type = "@bazel_tools//tools/python:toolchain_type",
 )
-
-load("@bazel_tools//tools/python:toolchain.bzl", "py_runtime_pair")
