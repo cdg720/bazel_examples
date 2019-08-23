@@ -38,7 +38,6 @@ toolchain(
     target_compatible_with = [
         # Make sure this toolchain is only selected for a target platform that
         # advertises that it has interpreters available under /usr/weirdpath.
-        # ":usr_weirdpath_python2",
         ":usr_weirdpath_python3",
     ],
     toolchain = ":my_platform_runtimes",
