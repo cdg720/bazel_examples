@@ -1,6 +1,6 @@
 # bazel_examples
 
-I am using bazel 0.28 and running these on Linux.
+I have tested my examples with bazel 0.28.1 and macOS Mojave.
 
 Every directory is a self-contained example.
 
