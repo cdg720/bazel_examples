@@ -18,3 +18,10 @@ cd py3_image
 # Builds and runs a docker image of hello_world.py.
 bazel run -c opt foo:hello_world_image
 ```
+
+## numpy
+```bash
+cd numpy
+# Builds and runs a docker image of numpy_test.py. (It fails right now.)
+bazel run -c opt foo:numpy_test
+```
