@@ -7,16 +7,20 @@ from absl import flags
 FLAGS = flags.FLAGS
 
 flags.DEFINE_string('key', None, 'key')
-flags.DEFINE_string('project', None, 'project')
-flags.DEFINE_string('test', None, 'test')
+flags.DEFINE_string('doc_id', None, 'test')
 
 
 def main(argv):
+  assert FLAGS.key
+  assert FLAGS.doc_id
+
   os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = FLAGS.key
 
-  db = firestore.Client(project=FLAGS.project)
-  doc_ref = db.collection('debug').document(FLAGS.test)
-  data = {'id': doc_ref.id, 'name': doc_ref.id}
+  db = firestore.Client()
+  print(db.project)
+
+  doc_ref = db.collection('debug').document(FLAGS.doc_id)
+  data = {'name': 'YOUR NAME'}
 
   doc_ref.set(data)
 

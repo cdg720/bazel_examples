@@ -3,9 +3,9 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 http_archive(
     name = "build_stack_rules_proto",
-    urls = ["https://github.com/stackb/rules_proto/archive/734b8d41d39a903c70132828616f26cb2c7f908c.tar.gz"],
-    sha256 = "c89348b73f4bc59c0add4074cc0c620a5a2a08338eb4ef207d57eaa8453b82e8",
-    strip_prefix = "rules_proto-734b8d41d39a903c70132828616f26cb2c7f908c",
+    urls = ["https://github.com/stackb/rules_proto/archive/1d6b84118399828511faeecc145d399c1e7bdee2.tar.gz"],
+    sha256 = "d456a22a6a8d577499440e8408fc64396486291b570963f7b157f775be11823e",
+    strip_prefix = "rules_proto-b2913e6340bcbffb46793045ecac928dcf1b34a5",
 )
 
 load("@build_stack_rules_proto//python:deps.bzl", "python_proto_library")
